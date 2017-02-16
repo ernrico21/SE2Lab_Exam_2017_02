@@ -62,6 +62,34 @@ describe("Test /searchItem", function() {
 		done();
 	  });
 	});
+	
+// Test for /sellItem
+describe("Test /sellItem", function() {
+	//set the data
+	var data = {
+			ID: 1,
+            size : "S",
+            colour: "blue"
+		};
+	
+	//legal request
+	it("to returns status code 200", function(done) {
+	  client.post(base_url + "sellItem/", data, function(err, res, body) {
+		expect(body).toEqual([
+			{
+                ID: 1,
+                type: "trausers",
+        		size: "S",
+                quantity: 1, //quantity from 2 to 1
+                colour: "blue",
+                price: 11,
+                season: 2017
+	}]
+		);
+
+		done();
+	  });
+	});
 
 	//item non existing
 	data1 = {ID: "10" };
