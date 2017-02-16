@@ -77,6 +77,7 @@ describe("Test /sellItem", function() {
 	  client.post(base_url + "sellItem/", data, function(err, res, body) {
 		expect(body).toEqual([
 			{
+			  
                 ID: 1,
                 type: "trausers",
         		size: "S",
