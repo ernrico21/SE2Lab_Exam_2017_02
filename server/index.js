@@ -285,6 +285,42 @@ app.post('/sales', function(request, response)
 
   var year;
   var discount;
+  var items;
+  if ( typeof request.body !== 'undefined' && request.body)
+	{
+        
+		if ( typeof request.body.year !== 'undefined' && request.body.year)
+			 year = parseInt(request.body.year);
+		else 
+			year = -1;
+			
+    if ( typeof request.body.discount !== 'undefined' && request.body.discount)
+            discount = parseInt(request.body.discount);
+		else 
+			discount = -1;
+	}
+	
+	
+	if(year!=-1 && discount !=-1)
+	{
+	  if(discount<0 || discount >100)
+	  {
+	    items=shopManager.yeardiscountItem(year,discount);
+	    response.writeHead(200, headers);
+			response.end(JSON.stringify(items));
+	  }
+	  else
+	  {
+	    response.writeHead(406, headers);
+			response.end(JSON.stringify());
+	  }
+	}
+	else
+	{
+	  response.writeHead(404, headers);
+		response.end(JSON.stringify());
+	}
+        
 }
 
 app.listen(app.get('port'), function() {
