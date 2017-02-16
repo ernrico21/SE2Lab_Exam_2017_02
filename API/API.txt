@@ -114,6 +114,10 @@ paths:
               $ref: "#/definitions/item"
 	406:
           description: error in discouint number
+          schema: 
+            properties:
+              error:
+                type: integer
 	404:
           description: no items found with specified criteria
           

@@ -283,8 +283,8 @@ app.post('/sales', function(request, response)
 	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
 	headers["Content-Type"] = "application/json";
 
-  var year;
-  var discount;
+  var year=-1;
+  var discount=-1;
   var items;
   if ( typeof request.body !== 'undefined' && request.body)
 	{
