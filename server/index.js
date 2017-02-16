@@ -312,7 +312,7 @@ app.post('/sales', function(request, response)
 	  else
 	  {
 	    response.writeHead(406, headers);
-			response.end(JSON.stringify());
+			response.end(JSON.stringify("1"));
 	  }
 	}
 	else
