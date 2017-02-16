@@ -112,6 +112,10 @@ paths:
             type: array
             items:
               $ref: "#/definitions/item"
+	406:
+          description: error in discouint number
+	404:
+          description: no items found with specified criteria
           
 definitions:
   item:
